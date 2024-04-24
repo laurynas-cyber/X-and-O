@@ -1,3 +1,5 @@
+/* field style */
+
 body,
 body > * {
   margin: 0;
@@ -51,5 +53,104 @@ body {
   .C2,
   .C3 {
     border-bottom: none;
+  }
+}
+
+/* X and O style */
+
+.box {
+  height: 250px;
+  width: 250px;
+  display: flex;
+  justify-content: center; /*isjungti flex jeigu nori kad nuo pradzios dirbtu*/
+  align-items: center;
+  position: relative;
+}
+
+.Xcontainer2 {
+  position: relative;
+  width: 40px;
+  height: 10px;
+  transform: rotate(50deg);
+}
+
+.Xcontainer1 {
+  width: 40px;
+  height: 10px;
+  position: relative;
+  transform: rotate(130deg);
+}
+
+.X {
+  position: absolute;
+
+  height: 100%;
+  width: 100%;
+  padding-right: 0px;
+  background-color: rgb(255, 0, 51);
+  animation-name: kuku;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-timing-function: cubic-bezier(1, 0.07, 0, 1.03);
+}
+
+.Xcontainer1 .X {
+  animation-delay: 1s;
+  /* visibility: hidden; */
+}
+
+@keyframes kuku {
+  0% {
+    width: 0px;
+  }
+
+  100% {
+    /* padding-right: 200px; */
+    width: 100%;
+    /* visibility: visible; */
+  }
+}
+
+.O {
+  /* position: absolute; */
+
+  height: 140px;
+  width: 140px;
+
+  border: 18px solid rgb(50, 95, 207);
+  border-radius: 50%;
+
+  animation-name: radius;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(1, 0.07, 0, 1.03);
+  /* animation-timing-function: ease-in-out; */
+}
+
+@keyframes radius {
+  0% {
+    border-left: 18px solid rgb(50, 95, 207);
+    height: 0px;
+    width: 0px;
+  }
+
+  25% {
+    border-left: 18px solid rgb(50, 95, 207);
+    width: 10px;
+    height: 140px;
+  }
+
+  45% {
+    border-left: 18px solid rgb(50, 95, 207);
+    border-top: 18px solid rgb(50, 95, 207);
+    border-right: 18px solid rgb(50, 95, 207);
+    border-bottom: 18px solid rgb(50, 95, 207);
+    height: 140px;
+  }
+  100% {
+    border-left: 18px solid rgb(50, 95, 207);
+    border-top: 18px solid rgb(50, 95, 207);
+    border-right: 18px solid rgb(50, 95, 207);
+    border-bottom: 18px solid rgb(50, 95, 207);
   }
 }
