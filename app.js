@@ -19,27 +19,29 @@ everyField.forEach((f) => {
   });
 });
 
-// function X(parent) {
-//   let HtmlX = `<div class="Xcontainer1">
-//           <div class="X"></div>
-//     </div>
-//     <div class="Xcontainer2">
-//              <div class="X"></div>
-//     </div>`;
-//   let X = document.createElement("div");
-//   X.classList.add("box");
-//   X.innerHTML = HtmlX;
-//   parent.appendChild(X);
-// }
+function X(parent) {
+  let HtmlX = `<div class="Xcontainer1">
+          <div class="X"></div>
+    </div>
+    <div class="Xcontainer2">
+             <div class="X"></div>
+    </div>`;
+  let Xbox = document.createElement("div");
+  let X = document.querySelector(".Xcontainer2 .X");
+  Xbox.classList.add("box");
+  Xbox.innerHTML = HtmlX;
+  parent.appendChild(Xbox);
+  X.style.visibility = "visible";
+}
 
-// function O(parent) {
-//   let HtmlO = `<div class="Ocontainer">
-//         <div class="O"></div>
-//     </div>`;
-//   let O = document.createElement("div");
-//   O.classList.add("box");
-//   O.innerHTML = HtmlO;
-//   parent.appendChild(O);
-// }
+function O(parent) {
+  let HtmlO = `<div class="Ocontainer">
+        <div class="O"></div>
+    </div>`;
+  let O = document.createElement("div");
+  O.classList.add("box");
+  O.innerHTML = HtmlO;
+  parent.appendChild(O);
+}
 
 function rules() {}
