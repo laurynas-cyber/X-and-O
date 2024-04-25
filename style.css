@@ -5,7 +5,7 @@ body {
 .box {
   height: 250px;
   width: 250px;
-  /* border: solid 1px red; */
+  border: solid 1px red;
   display: flex;
   justify-content: center; /*isjungti flex jeigu nori kad nuo pradzios dirbtu*/
   align-items: center;
@@ -31,8 +31,8 @@ body {
   position: absolute;
 
   height: 20px;
-  width: 100px;
-  /* padding-right: 0px; */
+  width: 200px;
+  padding-right: 0px;
   background-color: rgb(255, 0, 51);
   animation-name: kuku;
   animation-duration: 2s;

@@ -5,6 +5,7 @@ body > * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 body {
@@ -16,7 +17,7 @@ body {
   align-items: center;
 }
 
-.field {
+.fields {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,22 +27,11 @@ body {
   height: 700px;
 }
 
-.field .flex {
+.fields .flex {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100%;
-  div {
-    border-right: 4px solid blue;
-    border-bottom: 4px solid blue;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-  }
 
   .A3,
   .B3,
@@ -56,59 +46,49 @@ body {
   }
 }
 
+.field {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 4px solid blue;
+  border-bottom: 4px solid blue;
+  width: 230px;
+  height: 230px;
+
+  cursor: pointer;
+  position: relative;
+}
+
+.field > div {
+  border: none;
+  box-sizing: border-box;
+}
+
 /* X and O style */
 
 .box {
-  height: 250px;
-  width: 250px;
-  display: flex;
-  justify-content: center; /*isjungti flex jeigu nori kad nuo pradzios dirbtu*/
-  align-items: center;
+  margin: 5px 0px;
+  height: 225px;
+  width: 225px;
+  /* max-height: 250px;
+  width: 150px; */
+  background-color: aqua;
   position: relative;
 }
 
 .Xcontainer2 {
-  position: relative;
-  width: 40px;
-  height: 10px;
+  position: absolute;
+  width: 200px;
+  height: 20px;
+  /* border: red solid 1px; */
   transform: rotate(50deg);
 }
 
 .Xcontainer1 {
-  width: 40px;
-  height: 10px;
-  position: relative;
+  width: 200px;
+  height: 20px;
+  /* border: red solid 1px; */
   transform: rotate(130deg);
-}
-
-.X {
-  position: absolute;
-
-  height: 100%;
-  width: 100%;
-  padding-right: 0px;
-  background-color: rgb(255, 0, 51);
-  animation-name: kuku;
-  animation-duration: 2s;
-  animation-iteration-count: 1;
-  animation-timing-function: cubic-bezier(1, 0.07, 0, 1.03);
-}
-
-.Xcontainer1 .X {
-  animation-delay: 1s;
-  /* visibility: hidden; */
-}
-
-@keyframes kuku {
-  0% {
-    width: 0px;
-  }
-
-  100% {
-    /* padding-right: 200px; */
-    width: 100%;
-    /* visibility: visible; */
-  }
 }
 
 .O {
