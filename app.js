@@ -1,23 +1,37 @@
-const everyField = document.querySelectorAll(".flex div");
+const everyField = document.querySelectorAll(".field");
 let Xbox = document.createElement("div");
+let Obox = document.createElement("div");
+const reset = document.querySelector(".reset");
 let XorO = true;
+let Fieldstore = [];
 
-everyField.forEach((f) => {
-  f.addEventListener("click", () => {
-    if (XorO == true) {
+function fieldArrayDataSet() {
+  everyField.forEach((f, i) => {
+    let fieldcode = "A" + i;
+    f.dataset.Fieldcode = fieldcode;
+    Fieldstore.push(fieldcode);
+  });
+}
+fieldArrayDataSet();
+
+everyField.forEach((field, i) => {
+  field.addEventListener("click", () => {
+    if (XorO == true && field.dataset.Fieldcode == Fieldstore[i]) {
       XorO = false;
-
-      return Xplace(f);
-    } else if (XorO == false) {
+      Fieldstore[i] = 0;
+      console.log(Fieldstore);
+      return Xplace(field);
+    }
+    if (XorO == false && field.dataset.Fieldcode == Fieldstore[i]) {
       XorO = true;
-      return O(f);
+      Fieldstore[i] = 0;
+      console.log(Fieldstore);
+      return Oplace(field);
     }
   });
 });
 
-// if (f.contains(Xbox)) {
-//   f.removeEventListener("click", Xplace);
-// } else
+console.log(Fieldstore);
 
 function Xplace(parent) {
   let HtmlX = `<div class="Xcontainer1">
@@ -31,17 +45,28 @@ function Xplace(parent) {
   Xbox.innerHTML = HtmlX;
   parent.appendChild(Xbox);
 
-  console.log(parent.contains(Xbox));
+  // console.log(parent.contains(Xbox));
 }
 
-function O(parent) {
+function Oplace(parent) {
   let HtmlO = `<div class="Ocontainer">
         <div class="O"></div>
     </div>`;
-  let O = document.createElement("div");
-  O.classList.add("box");
-  O.innerHTML = HtmlO;
-  parent.appendChild(O);
+  Obox = document.createElement("div");
+  Obox.classList.add("box");
+  Obox.innerHTML = HtmlO;
+  parent.appendChild(Obox);
 }
+
+function clear() {
+  reset.addEventListener("click", (_) => {
+    everyField.forEach((field, i) => {
+      field.innerHTML = "";
+      Fieldstore[i] = field.dataset.Fieldcode;
+    });
+  });
+}
+
+clear(); //neleidzia antra kart spaust del to nest once:true
 
 function rules() {}
