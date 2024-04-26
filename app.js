@@ -1,4 +1,5 @@
 const everyField = document.querySelectorAll(".field");
+
 let Xbox = document.createElement("div");
 let Obox = document.createElement("div");
 const reset = document.querySelector(".reset");
@@ -19,13 +20,16 @@ everyField.forEach((field, i) => {
     if (XorO == true && field.dataset.Fieldcode == Fieldstore[i]) {
       XorO = false;
       Fieldstore[i] = 0;
-      console.log(Fieldstore);
+      document.querySelector(".smallO").style.display = "flex";
+      document.querySelector(".smallbox").style.display = "none";
       return Xplace(field);
     }
     if (XorO == false && field.dataset.Fieldcode == Fieldstore[i]) {
       XorO = true;
       Fieldstore[i] = 0;
-      console.log(Fieldstore);
+
+      document.querySelector(".smallbox").style.display = "flex";
+      document.querySelector(".smallO").style.display = "none";
       return Oplace(field);
     }
   });
@@ -44,8 +48,6 @@ function Xplace(parent) {
   Xbox.classList.add("box");
   Xbox.innerHTML = HtmlX;
   parent.appendChild(Xbox);
-
-  // console.log(parent.contains(Xbox));
 }
 
 function Oplace(parent) {
@@ -67,6 +69,19 @@ function clear() {
   });
 }
 
-clear(); //neleidzia antra kart spaust del to nest once:true
+clear();
 
-function rules() {}
+console.log("flag", XorO);
+// function TurnAlert() {
+//   if (XorO == true) {
+//     console.log("flag", XorO);
+//     document.querySelector(".smallbox").style.display = "content";
+//     document.querySelector(".smallO").style.display = "none";
+//   } else if (XorO == false) {
+//     console.log("flag", XorO);
+//     document.querySelector(".smallO").style.display = "content";
+//     document.querySelector(".smallbox").style.display = "none";
+//   }
+// }
+
+// TurnAlert();
