@@ -269,6 +269,7 @@ body {
   height: 8px;
   position: absolute;
   z-index: 2;
+  display: none;
 }
 
 .endYellow {
@@ -278,6 +279,7 @@ body {
 
   /* position: absolute; */
   /* visibility: hidden; */
+  /* display: none; */
   animation-name: end;
   animation-duration: 1.5s;
   animation-iteration-count: 1;

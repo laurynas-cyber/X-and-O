@@ -1,5 +1,5 @@
 const everyField = document.querySelectorAll(".field");
-
+const YellowStripe = document.querySelector(".Yellow-Container");
 let Xbox = document.createElement("div");
 let Obox = document.createElement("div");
 const reset = document.querySelector(".reset");
@@ -40,6 +40,7 @@ function ChangeWinConditions(SelectedField, ChangedField) {
     let newArr = condition.map((fieldCode) =>
       fieldCode == SelectedField ? (fieldCode = ChangedField) : fieldCode
     );
+    EndAnimationStripe(condition);
     console.log(newArr);
     winConditions[i] = newArr;
   });
@@ -126,3 +127,9 @@ function clear() {
 }
 
 clear();
+
+function EndAnimationStripe(condition) {
+  if (condition == [1, 1, 1]) {
+    console.log("X");
+  }
+}
