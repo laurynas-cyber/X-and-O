@@ -271,8 +271,6 @@ body {
   z-index: 2;
 
   display: none;
-
-
 }
 
 .endYellow {
@@ -302,6 +300,6 @@ body {
   }
 
   100% {
-    width: 800px;
+    width: 850px;
   }
 }

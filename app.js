@@ -16,15 +16,12 @@ let winConditions = [
   ["A2", "A4", "A6"],
 ];
 
-console.log(winConditions);
-
 const WinX = (value) => value == 1;
 const WinO = (value) => value == 0;
 
 function GameOver(WinArr) {
   WinArr.forEach((condition, ind) => {
     if (condition.every(WinX)) {
-      console.log(condition, ind);
       EndAnimationStripe(ind);
       let gg = Fieldstore.map((x) => (x = false));
       Fieldstore = gg;
@@ -41,8 +38,6 @@ function ChangeWinConditions(SelectedField, ChangedField) {
     let newArr = condition.map((fieldCode) =>
       fieldCode == SelectedField ? (fieldCode = ChangedField) : fieldCode
     );
-
-    // console.log(newArr);
     winConditions[i] = newArr;
   });
 }
@@ -61,25 +56,19 @@ everyField.forEach((field, i) => {
     if (XorO == true && field.dataset.Fieldcode == Fieldstore[i]) {
       XorO = false;
       Fieldstore[i] = 1;
-      console.log(Fieldstore[i]);
       document.querySelector(".smallO").style.display = "flex";
       document.querySelector(".smallbox").style.display = "none";
       ChangeWinConditions(field.dataset.Fieldcode, Fieldstore[i]);
       GameOver(winConditions);
-
-      console.log(winConditions);
       return Xplace(field);
     }
     if (XorO == false && field.dataset.Fieldcode == Fieldstore[i]) {
       XorO = true;
       Fieldstore[i] = 0;
-      console.log(Fieldstore[i]);
       document.querySelector(".smallbox").style.display = "flex";
       document.querySelector(".smallO").style.display = "none";
       ChangeWinConditions(field.dataset.Fieldcode, Fieldstore[i]);
       GameOver(winConditions);
-
-      console.log(winConditions);
       return Oplace(field);
     }
   });
@@ -110,9 +99,7 @@ function Oplace(parent) {
 
 function clear() {
   reset.addEventListener("click", (_) => {
-
     resetTheEnd();
-
     everyField.forEach((field, i) => {
       field.innerHTML = "";
       Fieldstore[i] = field.dataset.Fieldcode;
@@ -146,48 +133,42 @@ function EndAnimationStripe(ind) {
   YellowStripe.style.display = "flex";
   switch (ind) {
     case 0:
-     
       YellowStripe.style.marginBottom = "450px";
       break;
     case 1:
       YellowStripe.style.display = "flex";
       break;
     case 2:
-     
       YellowStripe.style.marginTop = "450px";
       break;
     case 3:
-   
       YellowStripe.style.marginRight = "470px";
       YellowStripe.style.transform = "rotate(90deg)";
       break;
     case 4:
-      
       YellowStripe.style.transform = "rotate(90deg)";
       break;
     case 5:
-      
       YellowStripe.style.marginRight = "-470px";
       YellowStripe.style.transform = "rotate(90deg)";
       break;
     case 6:
-      
-      YellowStripe.style.width = "800px";
+      YellowStripe.style.width = "850px";
       YellowStripe.style.margin = "0px";
       YellowStripe.style.transform = "rotate(45deg)";
       document.querySelector(
         ".Yellow-Container .endYellow"
       ).style.animationName = "end135deg";
       document.querySelector(".Yellow-Container .endYellow").style.width =
-        "800px";
+        "850px";
       break;
     case 7:
       YellowStripe.style.margin = "0px";
-      
-      YellowStripe.style.width = "800px";
+
+      YellowStripe.style.width = "850px";
       YellowStripe.style.transform = "rotate(135deg)";
       document.querySelector(".Yellow-Container .endYellow").style.width =
-        "800px";
+        "850px";
       document.querySelector(
         ".Yellow-Container .endYellow"
       ).style.animationName = "end135deg";
