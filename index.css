@@ -269,7 +269,10 @@ body {
   height: 8px;
   position: absolute;
   z-index: 2;
+
   display: none;
+
+
 }
 
 .endYellow {
@@ -277,9 +280,6 @@ body {
   height: 8px;
   background-color: rgb(229, 229, 11);
 
-  /* position: absolute; */
-  /* visibility: hidden; */
-  /* display: none; */
   animation-name: end;
   animation-duration: 1.5s;
   animation-iteration-count: 1;
@@ -293,5 +293,15 @@ body {
 
   100% {
     width: 650px;
+  }
+}
+
+@keyframes end135deg {
+  0% {
+    width: 0px;
+  }
+
+  100% {
+    width: 800px;
   }
 }
